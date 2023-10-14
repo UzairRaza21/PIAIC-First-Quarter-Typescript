@@ -1,0 +1,748 @@
+To create config (For changing of setting
+
+tcs --init
+----------------------------------------------------
+to create the json file to configure 
+
+and 
+This command bring file in watch - transpile TS file into JS file
+tcs -w
+
+Now your terminal use to watch Typescript file 
+-----------------------------------------------------
+To run create and run js file
+tsc main.ts && node main.js
+
+-----------------------------------------------------
+to create project, it creates packages file 
+npm init -y
+
+-----------------------------------------------------
+to install any package
+npm install <name of package>
+
+-----------------------------------------------------
+to install types of Node.JS, it gives us intellisenses in searching  
+npm i @types/node
+
+------------------------------------------------------
+devDependencies means when you host your website then it will not install modules in Hosting server
+It will not install in publishing of website( it is use for developing environment) - It only works in our PC.
+
+While dependencies are publising packages at time of publishing and packages run on in our PC and internet also.
+
+-------------------------------------------------------
+Json - Javascript Object Notation - to store and transfer data - support by all programming Lauguage
+// It does not support methods (Function)
+//  Only one object can be store in one JSON file
+// if your want to store more objects then use Array
+-------------------------------------------------------
+modules are sub file which has different parts of websites and App
+It creates all these with import and export
+
+
+-------------------------------------------------------
+npm i inquirer
+
+then install its types
+
+npm i --save-dev @types/inquirer
+
+this package will ask input
+
+------------------------------------------------
+npx is used to execute command, it does not need to install program
+
+npx shahzad-cal
+------------------------------------------------
+
+npm login
+
+write this in terminal
+
+
+Then in Packag.json
+ "name": "@uzairraza",
+ "bin": "cal.js",
+  "type" : "module",
+  
+then we write in cal.ts file - shebang
+#! /usr/bin/env node
+
+this command shows the location of your program
+
+then to publish
+npm publish
+
+--------------------------------------------------
+Segragate all TS and JS files -  config.json
+
+"rootDir": "./src", 
+
+it saves all TS files
+
+--------
+
+"outDir": "./out",
+
+it saves all JS file
+
+-----------------------------------------------
+chalk-animation
+
+npm i chalk-animation
+
+npm i @types/chalk-animation
+
+import chalkAnimation from 'chalk-animation';
+
+rainbow
+pulse
+glitch
+radar
+neon
+karaoke
+
+chalkAnimation.rainbow('Lorem ipsum dolor sit amet');
+-----------------------------------------------
+
+npm i chalk
+
+import chalk from 'chalk';
+
+console.log(chalk.blue('Hello world!'));
+
+-------------------------------------------------
+
+// Topic Function
+
+// Named Function
+
+// function Sum(a:number, b: number) : number {
+//     return a + b ;
+// };
+
+// Sum(1, 2);
+//  console.log(Sum(1, 2))
+
+---------------------------------------------------
+ // Anonomyous Function
+
+//  let Sum = function(num1:number, num2: number ): number {
+//     return num1 + num2
+//  } ;
+
+// Sum(1, 2);
+---------------------------------------------
+
+//  Boolean shows -1 and other number in positive and negative consider true
+// Boolean ([].length) // false
+// Boolean ("") /// false
+// Boolean ("232") // true
+// Boolean (12) // true
+// Boolean (-1) // true
+
+---------------------------------------------------
+
+// Expilicit Function
+
+//        type of function 
+// let Sum: (num1:number, num2:number) => number = 
+// function (num1: number, num2 : number): number {
+//     return num1 + num2 ;
+// };
+
+// function name( c: () => void){};
+
+// name (function () {});
+
+// Arrow function or Lamba function
+// It is a anonymous and arrow function and it always be anonymous 
+
+// () => {}
+
+// let Sum = () => {}
+
+// let Sum = (a: number): void => {};
+// Sum(1);
+
+
+-----------------------------------------------------
+// call back function
+function greeter(fn: (message: string) => void) {
+ fn("hello");
+}
+
+function abc(message:string) {
+console.log(message);
+};
+
+greeter(abc);
+abc("Uzair");
+
+-----------------------------------------------------
+/// Topic Function - Optional Parameter
+
+// Contact type is Number or undefined becuase if user does not provide us input then it will be un-defined
+function abc (name: string, age: number, contact?: number){
+    if (contact){
+        console.log(contact);
+    }
+    else {
+        console.log("no contact number")
+    }
+};
+
+abc("okasha", 23);
+
+
+function abc(name:string, age: number, address = "xyz"){
+    console.log(name, age, address);
+}
+abc("Uzair", 23, "Karachi");
+abc ("Uzair", 23);
+-----------------------------------------------------
+
+// Rest Parameter
+//                                    rest parameter and it outcomes in [] Array 
+function calculate(operator:string, ...numbers: number[]){
+    console.log(operator, numbers);
+};
+
+calculate("+", 10, 20, 30, 40);
+---------------------------------------------------------
+
+function calculate(operator:string, ...numbers: number[]){
+    console.log(operator, numbers);
+let sum = 0;
+for(let i=0; i < numbers.length; i++){
+sum = sum + numbers [i];
+}
+return sum
+};
+
+console.log(calculate("+", 10, 20, 30, 40));
+
+------------------------------------------------------
+
+
+// Topic Fixed Array
+// Only assignable array can be come in array
+
+let a  : [1, 2, 3, 4] = [ 1, 2, 3, 4 ];
+
+a.push(55);
+
+----------------------------------------------------
+// Topic async
+// synchronous means works in sequence
+// In asynchronus programming, code works as per our instruction
+
+// console.log("First Task");
+
+// // for (let i = 0; i < 20000000 ; i++){}
+
+// console.log("Second Task");
+
+// Topic Call Back Function
+// parameter passed within the function
+
+// let parentFunction = (cb: () => void) => {
+//     cb();
+//     console.log("parent function called");
+//     cb();
+// };
+// // now we have called call back function by passing cb()
+
+// let callBackFunc = () => {
+//     console.log("Call Back Function Called");
+// };
+
+// parentFunction(callBackFunc)
+// It runs parent function because it is passed but not called
+--------------------------------------------------------------
+
+// Set time out is built in funcstion , in it first parameter we write call back function while in another write time in mili second
+// it is asynchronous function, it allows other code to run
+
+console.log("First")
+
+setTimeout( () => {
+    console.log("Hello")
+}, 3000 )
+
+console.log("Second");
+---------------------------------------------------------------
+
+// When we set the time as zero then it will not take time but it allows other code to run
+
+console.log("First")
+
+setTimeout( () => {
+    console.log("Hello")
+}, 0 )
+
+console.log("Second");
+----------------------------------------------------------
+// Architecture of Aynchronous Function
+
+//Java script code execute in call stack - e.g console.log("First")
+// after execution of code then call stack remove the code e.g console.log("First") and move to another code
+// but asynchronous function execute in Web APIs
+// asynchronous function means also include requesting server
+//  Call back queue receive function after execution from WebAPIs orderly to send to Call Stack
+
+-----------------------------------------------------------
+// Example of asynchronous and call back function
+Example 1
+
+let orderPizza = (ringBellCb: () => void) => {
+    setTimeout( ()=> {
+        ringBellCb()
+
+        // console.log("PIzza") // it gives outcome
+        // return "Pizza" // return does not use becuase function does not return any thing after execution of function
+    }, 3000)
+} ;
+
+let ringBell = () => {
+    console.log("Your Pizza is ready")
+};
+
+// let pizza = orderPizza(ringBell);
+// console.log(pizza)
+
+orderPizza(ringBell);
+
+
+------------------------------------------------------------
+
+// Example 2
+let isBurnt = Math.random() < 0.2;
+
+
+let orderPizza = (ringBellCb: () => void, errorHandleCb: () => void ) => {
+    setTimeout( ()=> {
+        if(isBurnt){
+            errorHandleCb()
+        }else {
+        ringBellCb()
+        }
+      
+    }, 3000)
+} ;
+
+let ringBell = () => {
+    console.log("Your Pizza is ready")
+};
+
+let errorHandle =() => {
+    console.log("Something went wrong");
+}
+
+orderPizza(ringBell, errorHandle);
+---------------------------------------------------------------
+// Example 3 with Promise
+
+let orderPizza = () => {
+    return new Promise ( (resolve) => {
+        setTimeout ( () => {
+            resolve("Pizza ready"); // this parameter goes in to then parameter
+        }, 5000)
+    } )
+}
+
+// resolve function is called with then 
+// parameter passed in resolve would come in then's parameter
+orderPizza().then( (value) => {
+    console.log(value)
+})
+
+
+-----------------------------------------------------------
+ // with catch
+let orderPizza = () => {
+    return new Promise ( (resolve, reject) => {
+        let isBurnt = true
+        setTimeout ( () => {
+            if(isBurnt = true){
+                reject()
+            } else {
+            resolve("Pizza ready");} // this parameter goes in to then parameter
+        }, 5000)
+    } )
+}
+
+// resolve function is called with then 
+// parameter passed in resolve would come in then's parameter
+orderPizza().then( (value) => {
+    console.log(value)
+})
+.catch( () =>{
+    console.log("Went wrong")
+})
+---------------------------------------------------------
+
+
+let orderPizza = () => {
+    return new Promise ( (resolve, reject) => {
+        let isBurnt = true
+        setTimeout ( () => {
+            if(isBurnt = true){
+                reject("Went wrong")
+            }else {
+            resolve("Pizza ready");} // this parameter goes in to then parameter
+        }, 5000)
+    } )
+}
+
+// resolve function is called with then 
+// parameter passed in resolve would come in then's parameter
+// orderPizza().then( (value) => {
+//     console.log(value)
+// })
+// .catch( () =>{
+//     console.log("Went wrong")
+// })
+
+
+// 
+let getOrder = async () => {
+    try {
+
+    const value = await orderPizza();
+
+    console.log(value)
+    }
+    // This function is called when reject function 
+    // e stand for 
+    catch (err){
+        console.log(err)
+    }
+}
+
+getOrder()
+
+---------------------------------------------------
+// Topic function overload
+// overload is used for defining data type
+
+// function add(arg1: string, arg2: string): string; // oprion 1
+// function add(arg1: number, arg2: number): number; // option 2
+// function add(arg3: boolean, arg2: boolean): boolean; // option 3
+
+// function add(arg1: any, arg2: any): any {
+//     return arg1 + arg2
+// };
+
+// add(3,3);
+
+// PIAIC Whatsapp number 0308-2220203
+
+// Object Ortiented Programming
+// it guide us to write the code... it makes easy to use code
+// method of writig the code
+// 4 Pillars of Object Oriented Programming
+1.Inheritance // inhert somthing from parent to child
+// 2. Abstract // hide the complex functionality/code
+// 3. encapsulation // make the code private 
+// 4. polymorphism // different form of same thing
+--------------------------------------------------------------------
+Topic Class
+
+// class Person {
+//     name:string = "Alex";
+//     age: number =22;
+
+//     constructor(){
+//         console.log(this);
+//     }
+// }
+// let alex = new Person();
+
+// console.log(alex);
+
+// this is built in empty object used in Javascript and Typescript
+
+class Person {
+    name:string;
+    age: number;
+
+    constructor(name: string, age:number){
+        this.name = name;
+        this.age = age;
+    }
+};
+let hamzah = new Person("hamzah", 22);
+ 
+console.log(hamzah);
+
+
+-----------------------------------------------------------------------
+console.log(hamzah);
+
+// class GoodGreeeter {
+//     name!:string;
+    
+//     }
+
+// let val = new GoodGreeeter();
+ 
+// console.log(val);
+
+// class GoodGreeeter {
+//      readonly name:string;
+    
+//      constructor(){
+//         this.name = "Uzair"
+//      }
+//     }    
+
+// let val = new GoodGreeeter();
+ 
+// console.log(val);
+
+
+// class GoodGreeeter {
+//      name:string;
+   
+//     constructor(){
+//        this.name = "Uzair"
+//     }
+    
+
+// greet(){
+//     console.log(`Hello ${this.name}`)
+// }
+
+// }
+
+// Topic Inheritance
+
+class Person {
+    name:string;
+    constructor(name:string){
+        this.name = name;
+    }
+}
+
+class Student extends Person {
+    // name: string;
+    rollNo: number;
+    constructor(name:string, rollNo:number){
+        // this.name = name;
+        super(name);
+        this.rollNo = rollNo;
+    }
+}
+
+class Teacher {
+    name: string;
+    salary: number;
+    constructor(name:string, salary:number){
+        this.name = name;
+        this.salary = salary;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
